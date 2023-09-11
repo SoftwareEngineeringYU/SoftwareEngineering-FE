@@ -1,8 +1,11 @@
+import DefaultHeader from "components/DefaultHeader";
+
 function App() {
   return (
-    <div className="App">
+    <>
+      <DefaultHeader />
       React App
-    </div>
+    </>
   );
 }
 
