@@ -27,6 +27,12 @@ const PaginationBtn = ({ totalPages }) => {
     });
   };
 
+  const arrowLeftEnd = () =>{
+    return(
+        {totalPages>5 && selectedPage>5 ? <button value={"<<"} onClick={()=>setSelectedPage(1)}></button>:null};
+    );
+  };
+
   return (
     <ul>
         {renderPageBtns()}
