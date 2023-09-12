@@ -28,9 +28,9 @@ const PaginationBtn = ({ totalPages }) => {
 
   return (
     <ul>
-      <button onClick={() => setSelectedPage(1)}>&lt;&lt;</button>
+      {totalPages<2?null:<button onClick={() => setSelectedPage(1)}>&lt;&lt;</button>}
       {renderPageBtns()}
-      <button onClick={() => setSelectedPage(totalPages)}>&gt;&gt;</button>
+      {totalPages<2?null:<button onClick={() => setSelectedPage(totalPages)}>&gt;&gt;</button>}
     </ul>
   );
 };
