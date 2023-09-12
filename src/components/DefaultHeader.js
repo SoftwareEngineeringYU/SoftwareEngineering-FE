@@ -1,7 +1,7 @@
 const DefaultHeader = () => {
   let isLogged = false;
   return (
-    <header>
+    <StyledDefaultHeader>
       {isLogged ? <p>로그아웃</p> : <p>로그인</p>}
       <span>LOGO HERE</span>
       <form>
@@ -22,7 +22,7 @@ const DefaultHeader = () => {
 
       {/* 만약 카테고리를 선택한 상황이라면 아래의 코드가 보이지 않도록 해야함. */}
       {/* <p>여기에 선택한 카테고리 이름</p> */}
-    </header>
+    </StyledDefaultHeader>
   );
 };
 

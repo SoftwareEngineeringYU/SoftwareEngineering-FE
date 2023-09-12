@@ -1,4 +1,4 @@
-import {useState} from "react";
+import { useState } from "react";
 
 const Banner = () => {
   //배너에 대한 더미 데이터
@@ -50,27 +50,15 @@ const Banner = () => {
 
       {/* 배너 더미데이터의 타이틀을 내용으로 보여주고, 클릭 시 배너 변경 */}
       <ul>
-        <li onClick={()=>handleBanner(0)}>
-          {bannerData[0].title}
-        </li>
-        <li onClick={()=>handleBanner(1)}>
-          {bannerData[1].title}
-        </li>
-        <li onClick={()=>handleBanner(2)}>
-          {bannerData[2].title}
-        </li>
-        <li onClick={()=>handleBanner(3)}>
-          {bannerData[3].title}
-        </li>
-        <li onClick={()=>handleBanner(4)}>
-          {bannerData[4].title}
-        </li>
-        <li onClick={()=>handleBanner(5)}>
-          {bannerData[5].title}
-        </li>
+        <li onClick={() => handleBanner(0)}>{bannerData[0].title}</li>
+        <li onClick={() => handleBanner(1)}>{bannerData[1].title}</li>
+        <li onClick={() => handleBanner(2)}>{bannerData[2].title}</li>
+        <li onClick={() => handleBanner(3)}>{bannerData[3].title}</li>
+        <li onClick={() => handleBanner(4)}>{bannerData[4].title}</li>
+        <li onClick={() => handleBanner(5)}>{bannerData[5].title}</li>
       </ul>
     </div>
   );
 };
 
-export default Banner;
+export { Banner };
