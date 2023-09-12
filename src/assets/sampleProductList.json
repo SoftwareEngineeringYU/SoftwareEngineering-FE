@@ -1,0 +1,12 @@
+[
+  { "name": "iPhone 13", "price": 999 },
+  { "name": "Samsung Galaxy S21", "price": 899 },
+  { "name": "Macbook Pro M1", "price": 1299 },
+  { "name": "Dell XPS 15", "price": 1399 },
+  { "name": "Sony WH-1000XM4", "price": 349 },
+  { "name": "iPad Pro", "price": 799 },
+  { "name": "Apple Watch Series 7", "price": 399 },
+  { "name": "Amazon Echo Dot (4th Gen)", "price": 49 },
+  { "name": "Google Pixel 6", "price": 699 },
+  { "name": "Microsoft Surface Pro X", "price": 999 }
+]

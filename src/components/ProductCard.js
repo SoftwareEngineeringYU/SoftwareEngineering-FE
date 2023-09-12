@@ -1,12 +1,6 @@
-const ProductCard = () => {
-  const product = {
-    name: "Product Name",
-    price: 100000,
-    image: "https://picsum.photos/200/300",
-    describe:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
-  };
+// 상품 객체 하나를 받아와 카드를 만들어줌.
 
+const ProductCard = ({product}) => {
   return (
     // 가장 바깥의 div태그에 onClick 붙여서 상세보기로 넘겨주자.
     <div>
