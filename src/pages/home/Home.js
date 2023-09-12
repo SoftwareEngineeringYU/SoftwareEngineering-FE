@@ -1,9 +1,5 @@
-import {
-  Banner,
-  DefaultHeader,
-  PaginationBtn,
-  ProductCard,
-} from "../../components";
+import { DefaultHeader, PaginationBtn, ProductCard } from "../../components";
+import Banner from "./Banner";
 
 const Home = () => {
   return (
