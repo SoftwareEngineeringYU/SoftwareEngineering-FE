@@ -19,6 +19,9 @@ const DefaultHeader = () => {
         <li>Category5</li>
         <li>Category6</li>
       </ul>
+
+      {/* 만약 카테고리를 선택한 상황이라면 아래의 코드가 보이지 않도록 해야함. */}
+      {/* <p>여기에 선택한 카테고리 이름</p> */}
     </header>
   );
 };

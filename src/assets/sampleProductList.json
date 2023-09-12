@@ -1,12 +1,72 @@
 [
-  { "name": "iPhone 13", "price": 999 },
-  { "name": "Samsung Galaxy S21", "price": 899 },
-  { "name": "Macbook Pro M1", "price": 1299 },
-  { "name": "Dell XPS 15", "price": 1399 },
-  { "name": "Sony WH-1000XM4", "price": 349 },
-  { "name": "iPad Pro", "price": 799 },
-  { "name": "Apple Watch Series 7", "price": 399 },
-  { "name": "Amazon Echo Dot (4th Gen)", "price": 49 },
-  { "name": "Google Pixel 6", "price": 699 },
-  { "name": "Microsoft Surface Pro X", "price": 999 }
+  {
+    "name": "iPhone 13",
+    "price": 999,
+    "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-pro-family-hero?wid=940&hei=1112&fmt=jpeg&qlt=80&.v=1631659438000",
+    "description": "this is description..",
+    "detailInfo": "this is detail info.."
+  },
+  {
+    "name": "Samsung Galaxy S21",
+    "price": 899,
+    "image": "https://images.samsung.com/is/image/samsung/p6pim/sg/galaxy-s21/gallery/sg-galaxy-s21-5g-g991-sm-g991bzvdxsp-368824552?$720_576_PNG$",
+    "description": "this is description..",
+    "detailInfo": "this is detail info.."
+  },
+  {
+    "name": "Macbook Pro M1",
+    "price": 1299,
+    "image":  "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp-spacegray-select-202011_GEO_SG?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1613676692000",
+    "description": "this is description..",
+    "detailInfo": "this is detail info.."
+  },
+  {
+    "name": "Dell XPS 15",
+    "price": 1399,
+    "image": "https://i.dell.com/is/image/DellContent//content/dam/global-site-design/product_images/dell_client_products/notebooks/xps_notebooks/15_9500_non_touch/xps-15-9500-laptop-pdp-design-gallery504x350.png?fmt=png-alpha",
+    "description": "this is description..",
+    "detailInfo": "this is detail info.."
+  },
+  {
+    "name": "Sony WH-1000XM4",
+    "price": 349,
+    "image":  "https://www.sony.com/image/7a0f0d0b3b0d6b0d6b0d6b0d6b0d6b0d?fmt=pjpeg&wid=330&bgcolor=FFFFFF&bgc=FFFFFF",
+    "description": "this is description..",
+    "detailInfo": "this is detail info.."
+  },
+  {
+    "name": "iPad Pro",
+    "price": 799,
+    "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-pro-12-select-cell-spacegray-202104_FMT_WHH?wid=940&hei=1112&fmt=jpeg&qlt=80&.v=1617126638000",
+    "description": "this is description..",
+    "detailInfo": "this is detail info.."
+  },
+  {
+    "name": "Apple Watch Series 7",
+    "price": 399,
+    "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/apple-watch-series-7-hero-202109?wid=940&hei=1112&fmt=jpeg&qlt=80&.v=1631672358000",
+    "description": "this is description..",
+    "detailInfo": "this is detail info.."
+  },
+  {
+    "name": "Amazon Echo Dot (4th Gen)",
+    "price": 49,
+    "image": "https://images-na.ssl-images-amazon.com/images/I/61KIy6gX-CL._AC_SL1000_.jpg",
+    "description": "this is description..",
+    "detailInfo": "this is detail info.."
+  },
+  {
+    "name": "Google Pixel 6",
+    "price": 699,
+    "image": "https://lh3.g",
+    "description": "this is description..",
+    "detailInfo": "this is detail info.."
+  },
+  {
+    "name": "Microsoft Surface Pro X",
+    "price": 999,
+    "image": "https://compass-ssl.microsoft.com/assets/1a/0d/1a0d6d3e-4e4e-4e4e-8b1a-3b3b4b3b4b3b.jpg?n=Surface_Pro_X_1_Gallery_01.jpg",
+    "description": "this is description..",
+    "detailInfo": "this is detail info.."
+  }
 ]
