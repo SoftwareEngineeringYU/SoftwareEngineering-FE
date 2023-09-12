@@ -1,4 +1,9 @@
-import { Banner, DefaultHeader } from "../../components";
+import {
+  Banner,
+  DefaultHeader,
+  PaginationBtn,
+  ProductCard,
+} from "../../components";
 
 const Home = () => {
   return (
@@ -6,6 +11,8 @@ const Home = () => {
       <DefaultHeader />
       <Banner />
       <div>new arrivals</div>
+      <ProductCard />
+      <PaginationBtn totalPages={6} />
     </>
   );
 };
