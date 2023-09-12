@@ -1,7 +1,6 @@
 import { useState } from "react";
 const PaginationBtn = ({ totalPages }) => {
-
-  const pages = []; 
+  const pages = [];
 
   for (let i = 1; i <= totalPages; i++) {
     pages.push(i);
@@ -27,15 +26,11 @@ const PaginationBtn = ({ totalPages }) => {
     });
   };
 
-  const arrowLeftEnd = () =>{
-    return(
-        {totalPages>5 && selectedPage>5 ? <button value={"<<"} onClick={()=>setSelectedPage(1)}></button>:null};
-    );
-  };
-
   return (
     <ul>
-        {renderPageBtns()}
+      <button onClick={() => setSelectedPage(1)}>&lt;&lt;</button>
+      {renderPageBtns()}
+      <button onClick={() => setSelectedPage(totalPages)}>&gt;&gt;</button>
     </ul>
   );
 };
