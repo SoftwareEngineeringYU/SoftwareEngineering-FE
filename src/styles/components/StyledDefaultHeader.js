@@ -3,14 +3,14 @@ import styled from "styled-components";
 const StyledDefaultHeader = styled.div`
   color: black;
 
-  .header {
+  .defaultHeader-wrapper {
     display: flex;
     justify-content: center;
   }
 
   .main-component {
     width: 1200px;
-    height: 250px;
+    height: 210px;
     display: flex;
     flex-direction: column;
   }
