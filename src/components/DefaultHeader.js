@@ -5,7 +5,7 @@ const DefaultHeader = () => {
   let isLogged = false;
   return (
     <StyledDefaultHeader>
-      <div class="header">
+      <div class="wrapper">
         <div class="main-component">
           {isLogged ? <p>로그아웃</p> : <p>로그인</p>}
 
