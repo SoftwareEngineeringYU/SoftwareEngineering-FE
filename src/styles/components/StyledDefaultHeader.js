@@ -54,7 +54,7 @@ const StyledDefaultHeader = styled.div`
   }
 
   li {
-    //border: solid 1px;
+    border: solid 1px;
     width: 200px;
     height: 72px;
     list-style-type: none;
