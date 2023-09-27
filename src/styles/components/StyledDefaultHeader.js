@@ -13,6 +13,7 @@ const StyledDefaultHeader = styled.div`
     height: 210px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
   }
 
   #default_top {
@@ -24,12 +25,15 @@ const StyledDefaultHeader = styled.div`
     text-align: center;
     justify-content: center;
     gap: 30px;
+    margin-bottom: 20px;
     
   }
 
   .logo {
     color: black;
-    font-size: 36px
+    font-size: 36px;
+    font-weight: bold;
+    padding-right: 40px;
   }
 
   .search-box {

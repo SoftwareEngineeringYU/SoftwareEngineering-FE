@@ -10,7 +10,7 @@ const DefaultHeader = () => {
           {isLogged ? <p>로그아웃</p> : <p>로그인</p>}
 
           <div id="default_top">
-            <span class="logo">LOGO HERE</span>
+            <span class="logo">#EASE</span>
             <form class="search-box">
               <input type="text" placeholder="검색어를 입력하세요" />
               <button id="search-btn" type="submit">검색</button>
