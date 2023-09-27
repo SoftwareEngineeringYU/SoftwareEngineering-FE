@@ -47,7 +47,7 @@ const Banner = () => {
 
   return (
     <StyledBanner>
-      <div class="header">
+      <div class="banner-header">
         <div class="banner">
           {/* 배너 더미데이터의 banner번째 인덱스의 이미지 */}
           <div class="banner-image">{bannerData[banner].image}</div>

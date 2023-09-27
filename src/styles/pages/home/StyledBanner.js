@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
 const StyledBanner = styled.div`
-color: black;
 
-.header {
+.banner-header {
     display: flex;
     justify-content: center;
 }
