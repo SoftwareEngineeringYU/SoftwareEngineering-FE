@@ -8,7 +8,7 @@ const Mypage = () => {
   const handleChangePage = (pageName) => {
     setPage(pageName);
     //라우팅 경로는 아직 정해지지 않았음, 임의로 설정함.
-    navigate(`/mypage/${pageName}`);
+    navigate(`/mypage/${page}`);
   };
 
   return (
