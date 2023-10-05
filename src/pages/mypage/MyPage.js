@@ -1,37 +1,47 @@
 import { useState } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import StyledMyPage from "styles/pages/mypage/StyledMyPage";
 
-const Mypage = () => {
+
+const MyPage = () => {
   const [page, setPage] = useState("myReviews");
-  const navigate = useNavigate();
+
 
   const handleChangePage = (pageName) => {
     setPage(pageName);
     //라우팅 경로는 아직 정해지지 않았음, 임의로 설정함.
-    navigate(`/mypage/${page}`);
+    
   };
 
   return (
+    <StyledMyPage>
     <div className="wrapper">
       <div className="header">
-        <h1>MyPage</h1>
-        <p>UserName</p>
-        <p>UserEmail</p>
+        <p id="mypage-header">MyPage</p>
+        <div className="division-line"></div>
+
+        <div className="namebox">
+          <p id="username" align="center">UserName</p>
+          <p align="center">UserEmail</p>
+        </div>
       </div>
+
       <div className="body">
         <div className="navBox">
-          <div onClick={() => handleChangePage(myReviews)}>My Reviews</div>
-          <div onClick={() => handleChangePage(orderHistory)}>
+          <div className="mypage-category" onClick={() => handleChangePage("myReviews")}>My Reviews</div>
+          <div className="mypage-category" onClick={() => handleChangePage("orderHistory")}>
             Order History
           </div>
-          <div onClick={() => handleChangePage(editInfo)}>Edit info</div>
+          <div className="mypage-category" onClick={() => handleChangePage("editInfo")}>Edit info</div>
         </div>
         <div className="page">
           <Outlet />
         </div>
       </div>
+
     </div>
+    </StyledMyPage>
   );
 };
 
-export default Mypage;
+export default MyPage;
