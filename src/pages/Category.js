@@ -7,7 +7,7 @@ import { ProductCard } from "components";
 const Category = ({ selectedCategory }) => {
   return (
     <div>
-      {/* <p>category name</p> 여기 말고 디폴트 헤더에서 표시하도록. */}
+      <p>category name</p> 
       <div>
         <p>정렬하기</p>
         <p>최신순</p> | <p>인기순</p> | <p>높은가격순</p> | <p>낮은가격순</p>
