@@ -1,15 +1,17 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 
-const Mypage = () => {
-  const [page, setPage] = useState("myReviews");
+const MyPage = () => {
   const navigate = useNavigate();
 
   const handleChangePage = (pageName) => {
-    setPage(pageName);
-    //라우팅 경로는 아직 정해지지 않았음, 임의로 설정함.
-    navigate(`/mypage/${page}`);
+    // 경로를 설정할 때 객체를 사용하여 동적 경로를 생성합니다.
+    navigate(`./${pageName}`);
   };
+
+  useEffect(() => {
+    navigate(`./myreviews`);
+  }, []);
 
   return (
     <div className="wrapper">
@@ -20,11 +22,11 @@ const Mypage = () => {
       </div>
       <div className="body">
         <div className="navBox">
-          <div onClick={() => handleChangePage(myReviews)}>My Reviews</div>
-          <div onClick={() => handleChangePage(orderHistory)}>
+          <div onClick={() => handleChangePage("myreviews")}>My Reviews</div>
+          <div onClick={() => handleChangePage("orderhistory")}>
             Order History
           </div>
-          <div onClick={() => handleChangePage(editInfo)}>Edit info</div>
+          <div onClick={() => handleChangePage("editinfo")}>Edit info</div>
         </div>
         <div className="page">
           <Outlet />
@@ -34,4 +36,4 @@ const Mypage = () => {
   );
 };
 
-export default Mypage;
+export default MyPage;
