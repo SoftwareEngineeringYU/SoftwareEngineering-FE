@@ -1,14 +1,14 @@
 import StyledSignIn from "styles/pages/auth/StyledSignIn";
 import { useNavigate } from "react-router-dom";
 
-
 const SignIn = () => {
-    const navigate = useNavigate();
-    
-    const navigateToSignUp = () => {
-      navigate("/signUp");
-    };
-    return (
+  const navigate = useNavigate();
+
+  const navigateToSignUp = () => {
+    navigate("/signUp");
+  };
+
+  return (
     <StyledSignIn>
       <div className="signInWrapper">
         <div className="signInBox">

@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Wrapper from "pages/Wrapper";
 import { Home } from "pages/home/Home";
 import Category from "pages/Category";
-import {SignIn, SignUp} from "pages/auth";
+import { SignIn, SignUp } from "pages/auth";
 import { MyPage, MyReviews, OrderHistory, EditInfo } from "pages/mypage";
 import sampleProductlist from "assets/sampleProductList.json";
 
@@ -20,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "signin",
         element: <SignIn />,
+      },
+      {
+        path: "signup",
+        element: <SignUp />,
       },
       {
         path: "category",
