@@ -4,7 +4,6 @@ const StyledHome = styled.div`
 
 #home-wrapper {
     width: 1240px;
-    //border: solid 1px;
     margin: 70px auto;
 }
 
