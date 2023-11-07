@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Wrapper from "pages/Wrapper";
 import { Home } from "pages/home/Home";
 import Category from "pages/Category";
+import {SignIn, SignUp} from "pages/auth";
 import { MyPage, MyReviews, OrderHistory, EditInfo } from "pages/mypage";
 import sampleProductlist from "assets/sampleProductList.json";
 
@@ -17,10 +18,14 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "category",
-        element: <Category selectedCategory={sampleProductlist}/>,
+        path: "signin",
+        element: <SignIn />,
       },
-      
+      {
+        path: "category",
+        element: <Category selectedCategory={sampleProductlist} />,
+      },
+
       {
         path: "mypage",
         element: <MyPage />,
@@ -37,11 +42,11 @@ const router = createBrowserRouter([
           {
             path: "editinfo",
             element: <EditInfo />,
-          }
-        ]
-      }
-    ]
-  }
+          },
+        ],
+      },
+    ],
+  },
 ]);
 
 function App() {
@@ -53,47 +58,3 @@ function App() {
 }
 
 export default App;
-
-// {
-//   path: "/",
-//   element: <Wrapper />,
-//   children: [
-//     {
-//       path: "/",
-//       element: <Home />,
-//       children: [
-//         {
-//           path: "category",
-//           element: <Category />,
-//         },
-//         {
-//           path: "signin",
-//           element: <Home />,
-//         },
-//         {
-//           path: "signup",
-//           element: <Home />,
-//         },
-//         {
-//           path: "mypage",
-//           element: <MyPage />,
-//           default: <OrderHistory />,
-//           children: [
-//             {
-//               path: "orderhistory",
-//               element: <OrderHistory />,
-//             },
-//             {
-//               path: "reviews",
-//               element: <MyReviews />,
-//             },
-//             {
-//               path: "editinfo",
-//               element: <EditInfo />,
-//             },
-//           ],
-//         },
-//       ],
-//     },
-//   ],
-// },
