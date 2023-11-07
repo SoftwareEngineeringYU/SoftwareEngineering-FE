@@ -28,10 +28,12 @@ const StyledCategory = styled.div`
   }
   .productCardWrapper {
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: start;
-    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+    border: solid 1px;
+    margin-top: 10px;
   }
   productCard {
     width: 100%;
