@@ -10,8 +10,18 @@ const ReviewBox = () => {
   const [review, setReview] = useState(
     "마감도 훌륭하고 핏도 좋아요! 데일리로 휘뚜루마뚜루 잘 입고 있습니다 강추"
   );
-
   const [isEditing, setIsEditing] = useState(false);
+  const [isDeleted, setIsDeleted] = useState(false);
+
+  const handleDelete = () => {
+    if (window.confirm("정말 삭제하시겠습니까?")) {
+      setIsDeleted(true);
+    }
+  };
+
+  if (isDeleted) {
+    return null;
+  }
 
   const handleEdit = () => {
     setIsEditing(!isEditing);
@@ -59,8 +69,12 @@ const ReviewBox = () => {
       ) : null} */}
       </div>
       <div className="reviewFooter">
-        {isEditing ? <span onClick={handleEdit}>완료</span> : <span onClick={handleEdit}>수정</span>}
-        /<span>삭제</span>
+        {isEditing ? (
+          <span onClick={handleEdit}>완료</span>
+        ) : (
+          <span onClick={handleEdit}>수정</span>
+        )}
+        /<span onClick={handleDelete}>삭제</span>
       </div>
     </StyledReviewBox>
   );
