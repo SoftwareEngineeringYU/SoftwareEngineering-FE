@@ -1,3 +1,6 @@
+import StyledPaginationBtn from "styles/components/StyledPaginationBtn";
+
+
 import { useState } from "react";
 const PaginationBtn = ({ totalPages }) => {
   const pages = [];
@@ -11,9 +14,11 @@ const PaginationBtn = ({ totalPages }) => {
   const renderPageBtns = () => {
     return pages.map((page) => {
       return (
-        <button
+        <StyledPaginationBtn>
+        <button class="pagingNumBtn"
           style={{
-            backgroundColor: selectedPage === page ? "lightgray" : "ivory",
+            backgroundColor: selectedPage === page ? "black" : "white",
+            color: selectedPage === page ? "white" : "black",
           }}
           onClick={() => {
             setSelectedPage(page);
@@ -22,16 +27,21 @@ const PaginationBtn = ({ totalPages }) => {
         >
           {page}
         </button>
+        </StyledPaginationBtn>
       );
     });
   };
 
   return (
-    <ul>
-      {totalPages<2?null:<button onClick={() => setSelectedPage(1)}>&lt;&lt;</button>}
-      {renderPageBtns()}
-      {totalPages<2?null:<button onClick={() => setSelectedPage(totalPages)}>&gt;&gt;</button>}
-    </ul>
+    <StyledPaginationBtn>
+      <ul id="paging">
+        {totalPages<2?null:<button class="pagingBtn"           
+
+          onClick={() => setSelectedPage(1)}>&lt;&lt;</button>}
+        {renderPageBtns()}
+        {totalPages<2?null:<button class="pagingBtn" onClick={() => setSelectedPage(totalPages)}>&gt;&gt;</button>}
+      </ul>
+    </StyledPaginationBtn>
   );
 };
 

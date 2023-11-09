@@ -1,23 +1,64 @@
 import React from "react";
-import { ReviewBox } from "components";
+import StyledApp from "StyledApp";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Wrapper from "pages/Wrapper";
+import { Home } from "pages/home/Home";
+import Category from "pages/Category";
+import { SignIn, SignUp } from "pages/auth";
+import { MyPage, MyReviews, OrderHistory, EditInfo } from "pages/mypage";
+import sampleProductlist from "assets/sampleProductList.json";
+import ProductDetail from "pages/productDtail/ProductDetail";
 
-const review = {
-  title: "써보니 나쁘지 않은 듯",
-  writer: "김철수",
-  score: 4,
-  body: "생각보다 키감이 좋고 소음도 적네요. 사무실에서 써도 괜찮은 키보드 입니당!",
-};
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Wrapper />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "signin",
+        element: <SignIn />,
+      },
+      {
+        path: "signup",
+        element: <SignUp />,
+      },
+      {
+        path: "category",
+        element: <Category selectedCategory={sampleProductlist} />,
+      },
 
-const user = {
-  name: "김철수",
-  email: "asdf.com",
-};
+      {
+        path: "mypage",
+        element: <MyPage />,
+
+        children: [
+          {
+            path: "orderhistory",
+            element: <OrderHistory />,
+          },
+          {
+            path: "myreviews",
+            element: <MyReviews />,
+          },
+          {
+            path: "editinfo",
+            element: <EditInfo />,
+          },
+        ],
+      },
+    ],
+  },
+]);
 
 function App() {
   return (
-    <>
-      <ReviewBox review={review} loginUser={user} />
-    </>
+    <StyledApp>
+      <RouterProvider router={router} />
+    </StyledApp>
   );
 }
 
