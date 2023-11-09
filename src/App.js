@@ -19,7 +19,6 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-<<<<<<< HEAD
         path: "signin",
         element: <SignIn />,
       },
@@ -31,17 +30,6 @@ const router = createBrowserRouter([
         path: "category",
         element: <Category selectedCategory={sampleProductlist} />,
       },
-=======
-        path: "category",
-        element: <Category selectedCategory={sampleProductlist} />,
-        children: [
-          {
-            path: "product/:id",
-            element: <ProductDetail />,
-          },
-        ],
-      },
->>>>>>> feature/style
 
       {
         path: "mypage",
@@ -75,50 +63,3 @@ function App() {
 }
 
 export default App;
-<<<<<<< HEAD
-=======
-
-// {
-//   path: "/",
-//   element: <Wrapper />,
-//   children: [
-//     {
-//       path: "/",
-//       element: <Home />,
-//       children: [
-//         {
-//           path: "category",
-//           element: <Category />,
-//         },
-//         {
-//           path: "signin",
-//           element: <Home />,
-//         },
-//         {
-//           path: "signup",
-//           element: <Home />,
-//         },
-//         {
-//           path: "mypage",
-//           element: <MyPage />,
-//           default: <OrderHistory />,
-//           children: [
-//             {
-//               path: "orderhistory",
-//               element: <OrderHistory />,
-//             },
-//             {
-//               path: "reviews",
-//               element: <MyReviews />,
-//             },
-//             {
-//               path: "editinfo",
-//               element: <EditInfo />,
-//             },
-//           ],
-//         },
-//       ],
-//     },
-//   ],
-// },
->>>>>>> feature/style
