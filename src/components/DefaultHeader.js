@@ -17,28 +17,28 @@ const DefaultHeader = () => {
 
   return (
     <StyledDefaultHeader>
-      <div class="wrapper">
-        <div class="main-component">
+      <div className="wrapper">
+        <div className="main-component">
           {isLogged ? <p>로그아웃</p> : <p>로그인</p>}
 
           <div id="default_top">
-            <span class="logo" onClick={navigateToHome}>
+            <span className="logo" onClick={navigateToHome}>
               #EASE
             </span>
-            <form class="search-box">
+            <form className="search-box">
               <input type="text" placeholder="검색어를 입력하세요" />
               <button id="search-btn" type="submit">
                 검색
               </button>
             </form>
 
-            <div class="my-btn">
+            <div className="my-btn">
               <span onClick={navigateToMyPage}>마이페이지</span> /{" "}
               <span>주문조회</span> / <span>장바구니</span>
             </div>
           </div>
 
-          <ul class="category-box">
+          <ul className="category-box">
             <li onClick={navigateToCategory}>Category1</li>
             <li onClick={navigateToCategory}>Category2</li>
             <li onClick={navigateToCategory}>Category3</li>

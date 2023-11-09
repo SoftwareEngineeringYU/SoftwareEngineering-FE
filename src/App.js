@@ -6,6 +6,7 @@ import { Home } from "pages/home/Home";
 import Category from "pages/Category";
 import { MyPage, MyReviews, OrderHistory, EditInfo } from "pages/mypage";
 import sampleProductlist from "assets/sampleProductList.json";
+import ProductDetail from "pages/productDtail/ProductDetail";
 
 const router = createBrowserRouter([
   {
@@ -18,9 +19,15 @@ const router = createBrowserRouter([
       },
       {
         path: "category",
-        element: <Category selectedCategory={sampleProductlist}/>,
+        element: <Category selectedCategory={sampleProductlist} />,
+        children: [
+          {
+            path: "product/:id",
+            element: <ProductDetail />,
+          },
+        ],
       },
-      
+
       {
         path: "mypage",
         element: <MyPage />,
@@ -37,11 +44,11 @@ const router = createBrowserRouter([
           {
             path: "editinfo",
             element: <EditInfo />,
-          }
-        ]
-      }
-    ]
-  }
+          },
+        ],
+      },
+    ],
+  },
 ]);
 
 function App() {
