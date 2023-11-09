@@ -1,5 +1,6 @@
 import StyledReviewBox from "styles/components/StyledReviewBox";
 import { useState } from "react";
+import StarRating from "./StarRating";
 
 const ReviewBox = () => {
   //별점 관련 변수
@@ -12,6 +13,7 @@ const ReviewBox = () => {
   );
   const [isEditing, setIsEditing] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
+  const [rating, setRating] = useState(5);
 
   const handleDelete = () => {
     if (window.confirm("정말 삭제하시겠습니까?")) {
@@ -24,7 +26,37 @@ const ReviewBox = () => {
   }
 
   const handleEdit = () => {
-    setIsEditing(!isEditing);
+    setIsEditing(true);
+  };
+
+  const printStar = () => {
+    const stars = [];
+
+    for (let i = 0; i < rating; i++) {
+      stars.push(
+        <span key={i}>
+          ★
+        </span>
+      );
+    }
+
+    for (let i = 0; i < 5 - rating; i++) {
+      stars.push(
+        <span key={rating + i} onClick={handleEdit}>
+          ☆
+        </span>
+      );
+    }
+
+    return <div className="reviewStarBox">{stars}</div>;
+  };
+
+  const handleComplete = () => {
+    if (rating === 0) {
+      alert("별점 0점은 너무해요 ㅜㅜ");
+      return;
+    }
+    setIsEditing(false);
   };
 
   return (
@@ -40,12 +72,16 @@ const ReviewBox = () => {
           <span key={index}>★</span>
         ))}
       </span> */}
-      {/* <span>
+        {/* <span>
         {[...Array(emptyStar)].map((_, index) => (
           <span key={index}>☆</span>
         ))}
       </span></div> */}
-        <div className="reviewStarBox">★★★★★</div>
+        {isEditing ? (
+          <StarRating status={isEditing} callback={setRating} />
+        ) : (
+          printStar()
+        )}
       </div>
       <div className="reviewBody">
         <div className="reviewImg">
@@ -70,7 +106,7 @@ const ReviewBox = () => {
       </div>
       <div className="reviewFooter">
         {isEditing ? (
-          <span onClick={handleEdit}>완료</span>
+          <span onClick={handleComplete}>완료</span>
         ) : (
           <span onClick={handleEdit}>수정</span>
         )}
