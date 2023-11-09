@@ -29,6 +29,13 @@ const router = createBrowserRouter([
       {
         path: "category",
         element: <Category selectedCategory={sampleProductlist} />,
+
+        children: [
+          {
+            path: "product",
+            element: <ProductDetail />,
+          }
+        ]
       },
 
       {

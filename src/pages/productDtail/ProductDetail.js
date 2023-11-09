@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ReviewBox } from "components";
 // import { useParams } from "react-router-dom";
 
 // 상품 객체를 받아옴
@@ -15,10 +16,10 @@ const ProductDetail = () => {
         <button>상품 수정</button>
         <button>상품 삭제</button>
 
-        <img src={product.img} alt="상품 이미지" />
-        <div>{product.name}</div>
-        <div>판매가 {product.price}원</div>
-        <div>{product.description}</div>
+        <img src="https://picsum.photos/200/300" alt="product" />
+        <div>상품명</div>
+        <div>판매가 100,000원</div>
+        <div>따뜻하고 부드러운 안감을 사용해 더욱 포근한 후드</div>
         <button>BUY NOW</button>
         <button>ADD TO CART</button>
       </div>
@@ -26,9 +27,14 @@ const ProductDetail = () => {
       <button onClick={() => setIsDetail(true)}>상세설명 보기</button>
       <button onClick={() => setIsDetail(false)}>후기</button>
       {isDetail ? (
-        <div>{product.detailInfo}</div>
+        <div>대충 상세설명 칸이라는 뜻</div>
       ) : (
-        <div>대충 여기에 후기들이 와야한다는 뜻</div>
+        <div>
+          대충 여기에 후기들이 와야한다는 뜻
+          <ReviewBox />
+          <ReviewBox />
+          <ReviewBox />
+        </div>
       )}
 
       <hr />
