@@ -1,8 +1,12 @@
 import { useState } from "react";
+// import { useParams } from "react-router-dom";
 
 // 상품 객체를 받아옴
-const ProductDetail = ({ product }) => {
+const ProductDetail = () => {
   const [isDetail, setIsDetail] = useState(true);
+
+  // const { id } = useParams();
+  // const product = data[id];
 
   return (
     <div>
