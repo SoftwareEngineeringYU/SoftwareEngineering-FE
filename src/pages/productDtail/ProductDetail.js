@@ -30,13 +30,16 @@ const ProductDetail = () => {
         <button className="buyBtn">BUY NOW</button>
         <button className="cartBtn">ADD TO CART</button>
       </div>
+      <hr />
       <div className="body">
         <div className="stateBtn">
           <button onClick={() => setIsDetail(true)}>상세설명 보기</button>
           <button onClick={() => setIsDetail(false)}>후기</button>
         </div>
         {isDetail ? (
-          <div>대충 상세설명 칸이라는 뜻</div>
+          <div>
+            <img src="https://supertex.cafe24.com/product/23FW/23FW-THE-WOOLMARK-COMPANY-INTRO.jpg" />
+          </div>
         ) : (
           <div>
             대충 여기에 후기들이 와야한다는 뜻

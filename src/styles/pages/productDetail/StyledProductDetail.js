@@ -64,6 +64,7 @@ const StyledProductDetail = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 2rem;
   }
   .stateBtn {
     display: flex;
