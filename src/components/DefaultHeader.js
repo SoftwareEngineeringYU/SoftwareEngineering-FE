@@ -1,12 +1,18 @@
 import StyledDefaultHeader from "styles/components/StyledDefaultHeader";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const DefaultHeader = () => {
+
   let isLogged = false;
   const navigate = useNavigate();
-  const navigateToCategory = () => {
-    navigate("/category");
+  const [category, setCategory] = useState("");
+
+  const navigateToCategory = (e) => {
+    setCategory(e.target.textContent);
+    navigate(`/${category}`);
   };
+
   const navigateToHome = () => {
     navigate("/");
   };
@@ -45,12 +51,12 @@ const DefaultHeader = () => {
           </div>
 
           <ul className="category-box">
-            <li onClick={navigateToCategory}>Category1</li>
-            <li onClick={navigateToCategory}>Category2</li>
-            <li onClick={navigateToCategory}>Category3</li>
-            <li onClick={navigateToCategory}>Category4</li>
-            <li onClick={navigateToCategory}>Category5</li>
-            <li onClick={navigateToCategory}>Category6</li>
+            <li onClick={navigateToCategory}>Outer</li>
+            <li onClick={navigateToCategory}>Top</li>
+            <li onClick={navigateToCategory}>Pants</li>
+            <li onClick={navigateToCategory}>Shoes</li>
+            <li onClick={navigateToCategory}>Bag</li>
+            <li onClick={navigateToCategory}>Accessory</li>
           </ul>
         </div>
       </div>

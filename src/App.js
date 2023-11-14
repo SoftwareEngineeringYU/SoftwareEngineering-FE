@@ -28,7 +28,27 @@ const router = createBrowserRouter([
         element: <SignUp />,
       },
       {
-        path: "category",
+        path: "Outer",
+        element: <Category selectedCategory={sampleProductlist} />,
+      },
+      {
+        path: "Top",
+        element: <Category selectedCategory={sampleProductlist} />,
+      },
+      {
+        path: "Pants",
+        element: <Category selectedCategory={sampleProductlist} />,
+      },
+      {
+        path: "Shoes",
+        element: <Category selectedCategory={sampleProductlist} />,
+      },
+      {
+        path: "Bag",
+        element: <Category selectedCategory={sampleProductlist} />,
+      },
+      {
+        path: "Accessory",
         element: <Category selectedCategory={sampleProductlist} />,
       },
       {
