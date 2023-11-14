@@ -1,6 +1,20 @@
+import { useState } from "react";
 import StyledAddProduct from "styles/pages/admin/StyledAddProduct";
 
 const Add_product = () => {
+  const [images, setImages] = useState([]);
+  const [productInfoImg, setProductInfoImg] = useState([]);
+
+  const addImage = (e) => {
+    const newImage = e.target.files[0];
+    setImages([...images, newImage]);
+  };
+
+  const addProductInfoImg = (e) => {
+    const newProductInfoImg = e.target.files[0];
+    setProductInfoImg([...productInfoImg, newProductInfoImg]);
+  };
+
   return (
     <StyledAddProduct>
       <div className="wrapper">
@@ -27,7 +41,11 @@ const Add_product = () => {
             <textarea placeholder="상세설명" className="productDetail" />
           </div>
           <div className="inputWrapper">
-            <span className="text">사진추가</span>
+            <span className="text">대표사진 추가</span>
+            <input type="file" className="fileInput" />
+          </div>
+          <div className="inputWrapper">
+            <span className="text">상세설명 사진 추가</span>
             <input type="file" className="fileInput" />
           </div>
           <button type="submit" className="submitBtn">
