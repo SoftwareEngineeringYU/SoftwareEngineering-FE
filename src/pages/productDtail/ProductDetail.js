@@ -1,10 +1,21 @@
 import { useState } from "react";
 import { ReviewBox } from "components";
 import StyledProductDetail from "styles/pages/productDetail/StyledProductDetail";
+import { useNavigate } from "react-router-dom";
 // import { useParams } from "react-router-dom";
 
 // 상품 객체를 받아옴
 const ProductDetail = () => {
+
+  const navigate = useNavigate();
+
+  const onClickProductDelete = () => {
+    if (window.confirm("상품을 삭제하시겠습니까?")) {
+      alert("상품이 삭제되었습니다.");
+      navigate("/");
+    }
+  };
+
   const [isDetail, setIsDetail] = useState(true);
 
   // const { id } = useParams();
@@ -15,7 +26,7 @@ const ProductDetail = () => {
       <div className="header">
         {/* 아래 button태그는 admin일 때만 보여야함 */}
         <button className="admin_modifyBtn">상품 수정</button>
-        <button className="admin_deleteBtn">상품 삭제</button>
+        <button className="admin_deleteBtn" onClick={onClickProductDelete}>상품 삭제</button>
 
         <img
           src="https://picsum.photos/200/300"
