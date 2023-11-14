@@ -8,6 +8,7 @@ import { SignIn, SignUp } from "pages/auth";
 import { MyPage, MyReviews, OrderHistory, EditInfo } from "pages/mypage";
 import sampleProductlist from "assets/sampleProductList.json";
 import ProductDetail from "pages/productDtail/ProductDetail";
+import Add_product from "pages/admin/AddProduct";
 
 const router = createBrowserRouter([
   {
@@ -29,12 +30,14 @@ const router = createBrowserRouter([
       {
         path: "category",
         element: <Category selectedCategory={sampleProductlist} />,
-
-        
       },
       {
         path: "product",
         element: <ProductDetail />,
+      },
+      {
+        path: "add_product",
+        element: <Add_product />,
       },
 
       {
