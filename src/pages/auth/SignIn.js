@@ -100,7 +100,7 @@ const SignIn = () => {
             회원가입
           </button>
           <button
-            onClick={getRequestTest}
+            onClick={loginTest}
             style={{ width: "300px", height: "150px", marginTop: "20px" }}
           >
             Click To Test
