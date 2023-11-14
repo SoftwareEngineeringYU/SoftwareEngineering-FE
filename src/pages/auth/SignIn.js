@@ -1,23 +1,51 @@
 import StyledSignIn from "styles/pages/auth/StyledSignIn";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useState } from "react";
 
 const SignIn = () => {
   const navigate = useNavigate();
+  const [id, setId] = useState("");
+  const [password, setPassword] = useState("");
 
   const navigateToSignUp = () => {
     navigate("/signUp");
   };
 
-  const loginTest = async (e) => {
+  const navigateToHome = () => {
+    navigate("/");
+  }
+
+  // const loginTest = async (e) => {
+  //   e.preventDefault();
+
+  //   await axios
+  //     .post(
+  //       "https://greencart.one/sapi/api/v1/auth/login",
+  //       {
+  //         email: "1@1.com",
+  //         password: "111111!q",
+  //       },
+  //       {
+  //         withCredentials: true,
+  //       }
+  //     )
+  //     .then((res) => {
+  //       console.log(res);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+  const signIn = async (e) => {
     e.preventDefault();
 
     await axios
       .post(
         "https://greencart.one/sapi/api/v1/auth/login",
         {
-          email: "1@1.com",
-          password: "111111!q",
+          email: id,
+          password: password,
         },
         {
           withCredentials: true,
@@ -25,59 +53,47 @@ const SignIn = () => {
       )
       .then((res) => {
         console.log(res);
+        alert("로그인 성공");
+        navigateToHome();
       })
       .catch((err) => {
         console.log(err);
+        alert("아이디 또는 비밀번호가 일치하지 않습니다.");
       });
   };
-  const singUpTest = async (e) => {
-    e.preventDefault();
+  // const signUpTest = async (e) => {
+  //   e.preventDefault();
 
-    await axios
-      .post(
-        "https://greencart.one/sapi/api/v1/auth/signup",
-        {
-          nickname: "test",
-          email: "1@1.com",
-          password: "111111!q",
-        },
-        {
-          headers: {
-            withCredentials: true,
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "https://greencart.one/sapi",
-            Accept: "application/json",
-          },
-        }
-      )
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  //   await axios
+  //     .post(
+  //       "https://greencart.one/sapi/api/v1/auth/signup",
+  //       {
+  //         nickname: "test",
+  //         email: "1@1.com",
+  //         password: "111111!q",
+  //       },
+  //       {
+  //         headers: {
+  //           withCredentials: true,
+  //           "Content-Type": "application/json",
+  //           "Access-Control-Allow-Origin": "https://greencart.one/sapi",
+  //           Accept: "application/json",
+  //         },
+  //       }
+  //     )
+  //     .then((res) => {
+  //       console.log(res);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+
+  const idInputHandler = (e) => {
+    setId(e.target.value);
   };
-  const getRequestTest = async (e) => {
-    e.preventDefault();
-
-    await axios
-      .get(
-        "https://greencart.one/sapi/api/v1/products?page=0&size=5&sort=name,desc",
-        {
-          headers: {
-            withCredentials: true,
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
-            Accept: "application/json",
-          },
-        }
-      )
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  const pwInputHandler = (e) => {
+    setPassword(e.target.value);
   };
 
   return (
@@ -86,9 +102,19 @@ const SignIn = () => {
         <div className="signInBox">
           <h1 className="title">SignIn</h1>
           <form className="signInForm">
-            <input type="text" placeholder="ID" className="idInput" />
-            <input type="password" placeholder="PW" className="pwInput" />
-            <button type="submit" className="submitBtn">
+            <input
+              type="text"
+              placeholder="ID"
+              className="idInput"
+              onChange={idInputHandler}
+            />
+            <input
+              type="password"
+              placeholder="PW"
+              className="pwInput"
+              onChange={pwInputHandler}
+            />
+            <button type="submit" className="submitBtn" onClick={signIn}>
               로그인
             </button>
             <div className="findBtns">
@@ -99,12 +125,12 @@ const SignIn = () => {
           <button type="button" className="signUp" onClick={navigateToSignUp}>
             회원가입
           </button>
-          <button
+          {/* <button
             onClick={loginTest}
             style={{ width: "300px", height: "150px", marginTop: "20px" }}
           >
             Click To Test
-          </button>
+          </button> */}
         </div>
       </div>
     </StyledSignIn>
