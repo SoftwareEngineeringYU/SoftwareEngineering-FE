@@ -1,12 +1,11 @@
 import StyledDefaultHeader from "styles/components/StyledDefaultHeader";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const DefaultHeader = () => {
-
-  let isLogged = false;
   const navigate = useNavigate();
   const [category, setCategory] = useState("");
+  const [isLogged, setIsLogged] = useState(false);
 
   const navigateToCategory = (e) => {
     setCategory(e.target.textContent);
@@ -22,6 +21,15 @@ const DefaultHeader = () => {
   const navigateToSignIn = () => {
     navigate("/signin");
   };
+
+  useEffect(() => {
+    const token = sessionStorage.getItem("accessToken");
+    if (token) {
+      setIsLogged(true);
+    } else {
+      setIsLogged(false);
+    }
+  }, []);
 
   return (
     <StyledDefaultHeader>
@@ -45,8 +53,8 @@ const DefaultHeader = () => {
             </form>
 
             <div className="my-btn">
-              <span onClick={navigateToMyPage}>마이페이지</span> /{" "}
-              <span>주문조회</span> / <span>장바구니</span>
+              <span onClick={navigateToMyPage}>마이페이지</span> /
+              <span>장바구니</span>
             </div>
           </div>
 
