@@ -5,7 +5,7 @@ import { useState } from "react";
 
 const SignIn = () => {
   const navigate = useNavigate();
-  const [id, setId] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const navigateToSignUp = () => {
@@ -14,7 +14,7 @@ const SignIn = () => {
 
   const navigateToHome = () => {
     navigate("/");
-  }
+  };
 
   // const loginTest = async (e) => {
   //   e.preventDefault();
@@ -44,7 +44,7 @@ const SignIn = () => {
       .post(
         "https://greencart.one/sapi/api/v1/auth/login",
         {
-          email: id,
+          email: email,
           password: password,
         },
         {
@@ -52,6 +52,15 @@ const SignIn = () => {
         }
       )
       .then((res) => {
+        // 서버 응답의 헤더에서 Authorization 헤더 가져오기
+        const authorizationHeader = res.headers.get("Authorization");
+
+        // Authorization 헤더에서 JWT 토큰 추출
+        const token = authorizationHeader && authorizationHeader.split(" ")[1];
+
+        //session storage에 토큰 저장
+        sessionStorage.setItem('accessToken', token);
+        
         console.log(res);
         alert("로그인 성공");
         navigateToHome();
@@ -89,8 +98,8 @@ const SignIn = () => {
   //     });
   // };
 
-  const idInputHandler = (e) => {
-    setId(e.target.value);
+  const emailInputHandler = (e) => {
+    setEmail(e.target.value);
   };
   const pwInputHandler = (e) => {
     setPassword(e.target.value);
@@ -104,9 +113,9 @@ const SignIn = () => {
           <form className="signInForm">
             <input
               type="text"
-              placeholder="ID"
+              placeholder="Email"
               className="idInput"
-              onChange={idInputHandler}
+              onChange={emailInputHandler}
             />
             <input
               type="password"
