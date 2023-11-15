@@ -15,7 +15,7 @@ const PaginationBtn = ({ totalPages }) => {
     return pages.map((page) => {
       return (
         <StyledPaginationBtn>
-        <button class="pagingNumBtn"
+        <button className="pagingNumBtn"
           style={{
             backgroundColor: selectedPage === page ? "black" : "white",
             color: selectedPage === page ? "white" : "black",
@@ -35,11 +35,11 @@ const PaginationBtn = ({ totalPages }) => {
   return (
     <StyledPaginationBtn>
       <ul id="paging">
-        {totalPages<2?null:<button class="pagingBtn"           
+        {totalPages<2?null:<button className="pagingBtn"           
 
           onClick={() => setSelectedPage(1)}>&lt;&lt;</button>}
         {renderPageBtns()}
-        {totalPages<2?null:<button class="pagingBtn" onClick={() => setSelectedPage(totalPages)}>&gt;&gt;</button>}
+        {totalPages<2?null:<button className="pagingBtn" onClick={() => setSelectedPage(totalPages)}>&gt;&gt;</button>}
       </ul>
     </StyledPaginationBtn>
   );

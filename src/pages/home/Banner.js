@@ -47,10 +47,10 @@ const Banner = () => {
 
   return (
     <StyledBanner>
-      <div class="banner-header">
-        <div class="banner">
+      <div className="banner-header">
+        <div className="banner">
           {/* 배너 더미데이터의 banner번째 인덱스의 이미지 */}
-          <div class="banner-image">{bannerData[banner].image}</div>
+          <div className="banner-image">{bannerData[banner].image}</div>
 
           {/* 배너 더미데이터의 타이틀을 내용으로 보여주고, 클릭 시 배너 변경 */}
           <ul>

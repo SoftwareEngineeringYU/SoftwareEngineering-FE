@@ -19,7 +19,7 @@ const ProductCard = ({ product }) => {
   return (
     // 가장 바깥의 div태그에 onClick 붙여서 상세보기로 넘겨주자.
     <StyledProductCard onClick={onClickHandler}>
-      <div class="product">
+      <div className="product">
         <img src="https://picsum.photos/200/300" alt="product" />
         <p>{product.name}</p>
         <p>{product.price.toLocaleString()}</p>
