@@ -1,6 +1,7 @@
 import StyledDefaultHeader from "styles/components/StyledDefaultHeader";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 const DefaultHeader = () => {
   const navigate = useNavigate();
@@ -31,12 +32,35 @@ const DefaultHeader = () => {
     }
   }, []);
 
+  const logout = async (e) => {
+    e.preventDefault();
+    await axios
+      .post(
+        "https://greencart.one/sapi/api/v1/accounts/logout",
+        {
+          accessToken: sessionStorage.getItem("accessToken"),
+        },
+        {
+          withCredentials: true,
+        }
+      )
+      .then((res) => {
+        console.log(res);
+        sessionStorage.removeItem("accessToken");
+        setIsLogged(false);
+        alert("로그아웃 되었습니다.");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <StyledDefaultHeader>
       <div className="wrapper">
         <div className="main-component">
           {isLogged ? (
-            <p>로그아웃</p>
+            <p onClick={logout}>로그아웃</p>
           ) : (
             <p onClick={navigateToSignIn}>로그인</p>
           )}
@@ -53,8 +77,9 @@ const DefaultHeader = () => {
             </form>
 
             <div className="my-btn">
-              <span onClick={navigateToMyPage}>마이페이지</span> /
-              <span>장바구니</span>
+              {isLogged ? (
+                <span onClick={navigateToMyPage}>마이페이지</span>
+              ) : null}
             </div>
           </div>
 
