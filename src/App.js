@@ -9,6 +9,7 @@ import { MyPage, MyReviews, OrderHistory, EditInfo } from "pages/mypage";
 import sampleProductlist from "assets/sampleProductList.json";
 import ProductDetail from "pages/productDtail/ProductDetail";
 import Add_product from "pages/admin/AddProduct";
+import Cart from "pages/Cart";
 
 const router = createBrowserRouter([
   {
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
       {
         path: "add_product",
         element: <Add_product />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
       },
 
       {

@@ -13,6 +13,10 @@ const DefaultHeader = () => {
     navigate(`/${category}`);
   };
 
+  const navigateToCart = (e) => {
+    navigate("/cart");
+  };
+
   const navigateToHome = () => {
     navigate("/");
   };
@@ -77,9 +81,16 @@ const DefaultHeader = () => {
             </form>
 
             <div className="my-btn">
-              {isLogged ? (
-                <span onClick={navigateToMyPage}>마이페이지</span>
-              ) : null}
+              <div>
+                {isLogged ? (
+                  <span onClick={navigateToMyPage}>마이페이지</span>
+                ) : null}
+              </div>
+              <div>
+                {isLogged ? (
+                  <span onClick={navigateToCart}>장바구니</span>
+                ) : null}
+              </div>
             </div>
           </div>
 
