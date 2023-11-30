@@ -5,12 +5,11 @@ import axios from "axios";
 
 const DefaultHeader = () => {
   const navigate = useNavigate();
-  const [category, setCategory] = useState("");
   const [isLogged, setIsLogged] = useState(false);
 
-  const navigateToCategory = (e) => {
-    setCategory(e.target.textContent);
-    navigate(`/${category}`);
+  const moveToCategory = (e) => {
+    const category = e.target.dataset.category;
+    navigate(`/category/${category}`);
   };
 
   const navigateToCart = (e) => {
@@ -95,12 +94,24 @@ const DefaultHeader = () => {
           </div>
 
           <ul className="category-box">
-            <li onClick={navigateToCategory}>Outer</li>
-            <li onClick={navigateToCategory}>Top</li>
-            <li onClick={navigateToCategory}>Pants</li>
-            <li onClick={navigateToCategory}>Shoes</li>
-            <li onClick={navigateToCategory}>Bag</li>
-            <li onClick={navigateToCategory}>Accessory</li>
+            <li onClick={moveToCategory} data-category="AA">
+              AA
+            </li>
+            <li onClick={moveToCategory} data-category="BB">
+              BB
+            </li>
+            <li onClick={moveToCategory} data-category="CC">
+              CC
+            </li>
+            <li onClick={moveToCategory} data-category="DD">
+              DD
+            </li>
+            <li onClick={moveToCategory} data-category="EE">
+              EE
+            </li>
+            <li onClick={moveToCategory} data-category="FF">
+              FF
+            </li>
           </ul>
         </div>
       </div>

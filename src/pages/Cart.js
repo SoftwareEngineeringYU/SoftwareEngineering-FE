@@ -1,7 +1,25 @@
 import StyledCart from "styles/pages/StyledCart";
 import CartProductCard from "components/CartProductCard";
+import axios from "axios";
+import { useEffect } from "react";
 
 const Cart = () => {
+  useEffect(() => {
+    const getCart = async () => {
+      await axios
+        .get("https://greencart.one/sapi/api/v1/carts", {
+          withCredentials: true,
+        })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+    getCart();
+  }, []);
+
   return (
     <StyledCart>
       <div className="header">
