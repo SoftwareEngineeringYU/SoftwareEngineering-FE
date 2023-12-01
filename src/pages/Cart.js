@@ -1,17 +1,26 @@
 import StyledCart from "styles/pages/StyledCart";
 import CartProductCard from "components/CartProductCard";
 import axios from "axios";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const Cart = () => {
+
+  const [products, setProducts] = useState([]);
+  const [cost, setCost] = useState(0);
   useEffect(() => {
+    const token = sessionStorage.getItem("accessToken");
     const getCart = async () => {
       await axios
         .get("https://greencart.one/sapi/api/v1/carts", {
           withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         })
         .then((res) => {
           console.log(res);
+          setProducts(res.data.data.products);
+          setCost(res.data.data.totalPrice);
         })
         .catch((err) => {
           console.log(err);
@@ -29,13 +38,23 @@ const Cart = () => {
         </div>
       </div>
       <div className="body">
+        {
+          (products.length === 0) ? <div className="emptyCart">장바구니가 비어있습니다.</div> : products.map((product) => {
+            return <CartProductCard key={product.id} product={product} />;
+          })
+        }
+        {/* <CartProductCard />
         <CartProductCard />
         <CartProductCard />
-        <CartProductCard />
+        {
+          products.map((product) => {
+            return <CartProductCard key={product.id} product={product} />;
+          })
+        } */}
       </div>
       <div className="footer">
         <div className="footer__row">
-          <span className="sum">총 상품금액: 0원</span>
+          <span className="sum">총 상품금액: {cost}원</span>
         </div>
         <div className="deleteBtn__wrapper">
           <button className="deleteSelectedBtn">선택상품 삭제</button>

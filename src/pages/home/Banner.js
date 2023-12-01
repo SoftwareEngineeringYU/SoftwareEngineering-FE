@@ -1,8 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import StyledBanner from "styles/pages/home/StyledBanner";
+import axiosInstance from "axiosInstance";
+import axios from "axios";
 
 
 const Banner = () => {
+
+  useEffect(() => {
+    const getBanner = async () => {
+      await axiosInstance
+        .get("/products/recommendation")
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+    getBanner();
+  });
+
   //배너에 대한 더미 데이터
   const bannerData = [
     {
@@ -45,6 +62,8 @@ const Banner = () => {
     setBanner(e);
   };
 
+
+  
   return (
     <StyledBanner>
       <div className="banner-header">

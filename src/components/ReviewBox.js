@@ -1,16 +1,19 @@
 import StyledReviewBox from "styles/components/StyledReviewBox";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import StarRating from "./StarRating";
 
-const ReviewBox = () => {
+const ReviewBox = ({ reviewGot }) => {
   //별점 관련 변수
   // const fullStar = 5;
   // const filledStar = review.score;
   // const emptyStar = fullStar - filledStar;
 
-  const [review, setReview] = useState(
-    "마감도 훌륭하고 핏도 좋아요! 데일리로 휘뚜루마뚜루 잘 입고 있습니다 강추"
-  );
+  useEffect(() => {
+    setReview(reviewGot.body);
+    setRating(reviewGot.rating);
+  }, []);
+
+  const [review, setReview] = useState("");
   const [isEditing, setIsEditing] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
   const [rating, setRating] = useState(5);
@@ -33,11 +36,7 @@ const ReviewBox = () => {
     const stars = [];
 
     for (let i = 0; i < rating; i++) {
-      stars.push(
-        <span key={i}>
-          ★
-        </span>
-      );
+      stars.push(<span key={i}>★</span>);
     }
 
     for (let i = 0; i < 5 - rating; i++) {
@@ -63,8 +62,8 @@ const ReviewBox = () => {
     <StyledReviewBox>
       <div className="reviewHeader">
         <div className="header__left">
-          <span className="reviewTitle">리뷰 제목</span>
-          <span className="reviewWriter">리뷰 작성자</span>
+          {/* <span className="reviewTitle">리뷰 제목</span> */}
+          {/* <span className="reviewWriter">리뷰 작성자</span> */}
         </div>
         {/* 별점을 보여주는 부분 */}
         {/* <div className="reviewStarBox"><span>

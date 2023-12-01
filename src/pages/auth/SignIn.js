@@ -2,6 +2,7 @@ import StyledSignIn from "styles/pages/auth/StyledSignIn";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
+import axiosInstance from "axiosInstance";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -37,32 +38,27 @@ const SignIn = () => {
   //       console.log(err);
   //     });
   // };
+
   const signIn = async (e) => {
     e.preventDefault();
 
-    await axios
-      .post(
-        "https://greencart.one/sapi/api/v1/auth/login",
-        {
-          email: email,
-          password: password,
-        },
-        {
-          withCredentials: true,
-        }
-      )
+    await axiosInstance
+      .post("auth/login", {
+        email: email,
+        password: password,
+      })
       .then((res) => {
         // 서버 응답의 헤더에서 Authorization 헤더 가져오기
         const authorizationHeader = res.headers.get("Authorization");
-
         // Authorization 헤더에서 JWT 토큰 추출
         const token = authorizationHeader && authorizationHeader.split(" ")[1];
-
         //session storage에 토큰 저장
-        sessionStorage.setItem('accessToken', token);
-        
-        console.log(res);
+        sessionStorage.setItem("accessToken", token);
+
         alert("로그인 성공");
+        axiosInstance.defaults.headers[
+          "Authorization"
+        ] = `Bearer ${sessionStorage.getItem("accessToken")}`;
         navigateToHome();
       })
       .catch((err) => {

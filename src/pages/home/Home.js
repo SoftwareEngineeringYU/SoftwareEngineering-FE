@@ -3,16 +3,15 @@ import { Banner } from "./Banner";
 import StyledHome from "styles/pages/home/StyledHome";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import axiosInstance from "axiosInstance";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const getProducts = async () => {
-      await axios
-        .get("https://greencart.one/sapi/api/v1/products", {
-          withCredentials: true,
-        })
+      await axiosInstance
+        .get("/products")
         .then((res) => {
           setProducts(res.data.data);
         })

@@ -4,11 +4,12 @@ import StyledProductDetail from "styles/pages/productDetail/StyledProductDetail"
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-
+import axiosInstance from "axiosInstance";
 // 상품 객체를 받아옴
 const ProductDetail = () => {
   const [isDetail, setIsDetail] = useState(true);
   const [product, setProduct] = useState({});
+  const [reviews, setReviews] = useState([]);
   const navigate = useNavigate();
   const { productId } = useParams();
 
@@ -21,32 +22,33 @@ const ProductDetail = () => {
 
   useEffect(() => {
     const productView = async () => {
-      await axios
-        .get(`https://greencart.one/sapi/api/v1/products/${productId}`, {
-          withCredentials: true,
-        })
+      await axiosInstance
+        .get(`/products/${productId}`)
         .then((res) => {
-          console.log(res);
           setProduct(res.data.data);
         })
         .catch((err) => {
           console.log(err);
         });
     };
+    const getReviews = async () => {
+      await axiosInstance
+        .get(`/reviews/products/${productId}`)
+        .then((res) => {
+          setReviews(res.data.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
     productView();
+    getReviews();
   }, []);
 
   const addToCart = async () => {
-    await axios
+    await axiosInstance
       .post(
-        "https://greencart.one/sapi/api/v1/carts",
-        {
-          productId: productId,
-          quantity: 1,
-        },
-        {
-          withCredentials: true,
-        }
+        `/carts?product_id=${productId}&quantity=1`
       )
       .then((res) => {
         console.log(res);
@@ -55,7 +57,7 @@ const ProductDetail = () => {
       .catch((err) => {
         console.log(err);
       });
-  }
+  };
 
   return (
     <StyledProductDetail>
@@ -73,7 +75,9 @@ const ProductDetail = () => {
           따뜻하고 부드러운 안감을 사용해 더욱 포근한 후드
         </div> */}
         <button className="buyBtn">BUY NOW</button>
-        <button className="cartBtn" onClick={addToCart}>ADD TO CART</button>
+        <button className="cartBtn" onClick={addToCart}>
+          ADD TO CART
+        </button>
       </div>
       <hr />
       <div className="body">
@@ -87,9 +91,9 @@ const ProductDetail = () => {
           </div>
         ) : (
           <div>
-            <ReviewBox />
-            <ReviewBox />
-            <ReviewBox />
+            {reviews.map((review) => (
+              <ReviewBox review={review} key={review.id} />
+            ))}
           </div>
         )}
       </div>

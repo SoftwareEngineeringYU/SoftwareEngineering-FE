@@ -1,8 +1,8 @@
 import StyledCartProductCard from "styles/components/StyledCartProductCard";
 import { useNavigate } from "react-router-dom";
-const CartProductCard = () => {
+const CartProductCard = ({ product }) => {
   const navigate = useNavigate();
-
+  console.log(product);
   const navigateToProduct = () => {
     navigate("/product");
   };
@@ -12,10 +12,10 @@ const CartProductCard = () => {
       <div className="checkBox">
         <input type="checkbox" />
       </div>
-      <div className="productImg" onClick={navigateToProduct} >상품 이미지</div>
-      <div className="productName">상품명</div>
-      <div className="productPrice">100000 원</div>
-      <div className="productNumber">1개</div>
+      <img className="productImg" onClick={navigateToProduct} src={product.productImage}></img>
+      <div className="productName">{product.productName}</div>
+      <div className="productPrice">{product.productPrice}</div>
+      <div className="productNumber">{product.quantity}개</div>
     </StyledCartProductCard>
   );
 };
